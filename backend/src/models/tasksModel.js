@@ -18,7 +18,7 @@ const insertTask = async (task) => {
 };
 
 const deleteTask = async (id) => {
-    const [removedTask] = connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
+    const [removedTask] = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
     return removedTask;
 };
 
