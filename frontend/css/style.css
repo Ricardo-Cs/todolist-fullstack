@@ -16,7 +16,7 @@ main {
     border-radius: 8px;
     padding: 20px;
     width: 90%;
-    margin: 0 auto;
+    margin: 40px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -81,6 +81,7 @@ select {
     font-weight: 600;
     text-transform: capitalize;
     background-color: #ebebeb;
+    outline: none;
 }
 
 select:hover {
