@@ -6,6 +6,18 @@ const getAll = async () => {
     return tasks;
 };
 
+const getBySearch = async (search) => {
+    const query = "SELECT * FROM tasks" +  
+    " WHERE title LIKE ?" +
+    " OR status LIKE ?" +
+    " OR created_at LIKE ?";
+    const searchParam = `%${search}%`;
+  
+    const [tasks] = await connection.execute(query, [searchParam, searchParam, searchParam]);
+  
+    return tasks;
+};
+ 
 const insertTask = async (task) => {
     const { title } = task;
     const dateUTC = new Date(Date.now()).toUTCString();
@@ -33,6 +45,7 @@ const updateTask = async (id, task) => {
 
 module.exports = {
     getAll,
+    getBySearch,
     insertTask,
     deleteTask,
     updateTask

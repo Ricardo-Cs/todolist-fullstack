@@ -1,6 +1,7 @@
 const tbody = document.querySelector('tbody');
 const addForm = document.querySelector('.add-form');
 const inputTask = document.querySelector('.input-task')
+const inputSearch = document.querySelector('.search-form .input-search')
 
 const fetchTasks = async () => {
     const response = await fetch('http://localhost:3333/tasks');
@@ -45,6 +46,19 @@ const updateTask = async ({ id, title, status }) => {
     });
 
     loadTasks();
+};
+
+const searchTasks = async ({ target }) => {
+    const searchParam = target.value;
+    const response = await fetch(`http://localhost:3333/tasks/${searchParam}`);
+    const tasks = await response.json();
+
+    tbody.innerHTML = '';
+
+    tasks.forEach((task) => {
+        const tr = createRow(task);
+        tbody.appendChild(tr);
+    });
 };
 
 const formatDate = (dateUTC) => {
@@ -144,7 +158,8 @@ const loadTasks = async () => {
     });
 };
 
-
 addForm.addEventListener('submit', addTask);
+
+inputSearch.addEventListener('input', searchTasks);
 
 loadTasks();

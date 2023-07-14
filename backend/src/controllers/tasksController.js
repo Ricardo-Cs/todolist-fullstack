@@ -5,6 +5,13 @@ const getAll = async (_req, res) => {
     return res.status(200).json(tasks);
 };
 
+const getBySearch = async (req, res) => {
+    const { search } = req.params;
+
+    const tasks =  await tasksModel.getBySearch(search);
+    return res.status(200).json(tasks);
+};
+
 const insertTask = async (req, res) => {
     const createdTask = await tasksModel.insertTask(req.body);
     
@@ -27,6 +34,7 @@ const updateTask = async (req, res) => {
 
 module.exports = {
     getAll,
+    getBySearch,
     insertTask,
     deleteTask,
     updateTask

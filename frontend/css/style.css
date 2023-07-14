@@ -22,35 +22,63 @@ main {
 
 .add-form {
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     gap: 15px;
     width: 100%;
 }
 
-input {
-    width: 100%;
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    font-size: 1rem;
+.search-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.search-form label {
     font-weight: 600;
 }
 
-button[type="submit"] {
+input {
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+input.input-task {
+    width: 100%;
+    flex: 1;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+input.input-search {
+    padding: 5px;
+}
+
+button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0099ff;
-    height: 50px;
-    width: 50px;
     border: none;
     border-radius: 5px;
     color: #fff;
-    font-size: 1.7rem;
-    font-weight: 500;
     cursor: pointer;
+    background-color: #0099ff;
+
+}
+
+button.submit-task {
+    height: 50px;
+    width: 50px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+button.search-task {
+    height: 30px;
+    width: 30px;
 }
 
 table {
